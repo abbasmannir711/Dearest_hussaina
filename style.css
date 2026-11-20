@@ -1,1 +1,2249 @@
+/* ==========================================
+   HUSSAINA ROMANTIC WEBSITE
+   Designed by JR_DEV_001 ❤️
+========================================== */
 
+
+/* ==========================================
+   1. CSS VARIABLES
+========================================== */
+
+:root {
+  --bg: #fff7fb;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-solid: #ffffff;
+
+  --text: #392333;
+  --muted: #806b7b;
+
+  --primary: #ed4d9b;
+  --primary-deep: #c92f7d;
+  --accent: #ff9bc8;
+
+  --line: rgba(201, 47, 125, 0.16);
+
+  --shadow: 0 20px 60px rgba(166, 49, 111, 0.12);
+
+  --glow: 0 0 35px rgba(237, 77, 155, 0.25);
+
+  --header: rgba(255, 247, 251, 0.82);
+
+  --radius: 26px;
+}
+
+
+/* ==========================================
+   2. MIDNIGHT PURPLE THEME
+========================================== */
+
+body.midnight {
+
+  --bg: #100b1c;
+
+  --surface: rgba(34, 22, 49, 0.84);
+
+  --surface-solid: #21152e;
+
+  --text: #fff0fb;
+
+  --muted: #c0a9c9;
+
+  --primary: #d946ef;
+
+  --primary-deep: #a21caf;
+
+  --accent: #8b5cf6;
+
+  --line: rgba(217, 70, 239, 0.23);
+
+  --shadow: 0 20px 65px rgba(0, 0, 0, 0.34);
+
+  --glow: 0 0 38px rgba(217, 70, 239, 0.28);
+
+  --header: rgba(16, 11, 28, 0.84);
+
+}
+
+
+/* ==========================================
+   3. GLOBAL RESET
+========================================== */
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+html {
+
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 95px;
+
+}
+
+
+body {
+
+  min-width: 320px;
+
+  overflow-x: hidden;
+
+  color: var(--text);
+
+  background:
+
+    radial-gradient(
+      ellipse at 10% 5%,
+      rgba(255, 171, 211, .18),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      ellipse at 90% 32%,
+      rgba(236, 72, 153, .10),
+      transparent 30%
+    ),
+
+    var(--bg);
+
+  font-family: "DM Sans", sans-serif;
+
+  line-height: 1.7;
+
+  transition:
+    background .65s ease,
+    color .45s ease;
+
+}
+
+
+button,
+a {
+
+  font: inherit;
+
+}
+
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+
+button {
+
+  cursor: pointer;
+
+}
+
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+}
+
+
+::selection {
+
+  background: var(--primary);
+
+  color: white;
+
+}
+
+
+/* ==========================================
+   4. FLOATING HEARTS BACKGROUND
+========================================== */
+
+.ambient {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.ambient-item {
+
+  position: absolute;
+
+  bottom: -50px;
+
+  opacity: 0;
+
+  color: var(--primary);
+
+  animation: floatUp linear forwards;
+
+  text-shadow: 0 0 16px var(--accent);
+
+}
+
+
+@keyframes floatUp {
+
+  0% {
+
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(.65);
+
+    opacity: 0;
+
+  }
+
+  12% {
+
+    opacity: .42;
+
+  }
+
+  85% {
+
+    opacity: .3;
+
+  }
+
+  100% {
+
+    transform:
+      translateY(-115vh)
+      rotate(35deg)
+      scale(1.25);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* ==========================================
+   5. HEADER & NAVIGATION
+========================================== */
+
+.site-header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  min-height: 76px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 12px clamp(18px, 5vw, 76px);
+
+  background: var(--header);
+
+  border-bottom: 1px solid var(--line);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+
+}
+
+
+.brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: .04em;
+
+  white-space: nowrap;
+
+}
+
+
+.brand-mark {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--accent)
+    );
+
+  box-shadow: var(--glow);
+
+}
+
+
+.brand i {
+
+  display: block;
+
+  color: var(--muted);
+
+  font-size: .68rem;
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  letter-spacing: .02em;
+
+}
+
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(14px, 2.5vw, 32px);
+
+}
+
+
+.nav-links a {
+
+  position: relative;
+
+  color: var(--muted);
+
+  font-size: .88rem;
+
+  font-weight: 600;
+
+  transition: color .25s ease;
+
+}
+
+
+.nav-links a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 100%;
+
+  bottom: -8px;
+
+  height: 2px;
+
+  background: var(--primary);
+
+  transition: right .3s ease;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+  color: var(--primary);
+
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+  right: 0;
+
+}
+
+
+/* HEADER BUTTONS */
+
+.header-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+
+.theme-toggle,
+.menu-toggle {
+
+  border: 1px solid var(--line);
+
+  color: var(--text);
+
+  background: var(--surface);
+
+  border-radius: 999px;
+
+  padding: 9px 14px;
+
+  transition: .3s ease;
+
+}
+
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--glow);
+
+  border-color: var(--primary);
+
+}
+
+
+.toggle-icon {
+
+  color: var(--primary);
+
+  margin-right: 5px;
+
+}
+
+
+.menu-toggle {
+
+  display: none;
+
+  font-size: 1.2rem;
+
+}
+
+
+/* ==========================================
+   6. MAIN CONTAINER
+========================================== */
+
+.section-shell {
+
+  width: min(1160px, calc(100% - 44px));
+
+  margin-inline: auto;
+
+}
+
+
+/* ==========================================
+   7. HERO SECTION
+========================================== */
+
+.hero {
+
+  min-height: 680px;
+
+  display: grid;
+
+  grid-template-columns: 1.05fr .95fr;
+
+  align-items: center;
+
+  gap: 48px;
+
+  padding-top: 70px;
+
+  padding-bottom: 90px;
+
+  position: relative;
+
+}
+
+
+.eyebrow {
+
+  color: var(--primary);
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  letter-spacing: .22em;
+
+}
+
+
+.script-kicker,
+.script-word {
+
+  font-family: "Great Vibes", cursive;
+
+  color: var(--primary);
+
+  font-weight: 400;
+
+}
+
+
+.script-kicker {
+
+  font-size: 2rem;
+
+  margin-top: 16px;
+
+}
+
+
+.hero-title {
+
+  margin: 2px 0 16px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(3.2rem, 7vw, 6.1rem);
+
+  line-height: 1.08;
+
+  letter-spacing: -.055em;
+
+}
+
+
+.hero-title #typedWelcome {
+
+  background:
+
+    linear-gradient(
+      110deg,
+      var(--primary-deep),
+      var(--primary),
+      var(--accent)
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+
+}
+
+
+.title-heart {
+
+  color: var(--primary);
+
+  display: inline-block;
+
+  animation: heartbeat 1.5s ease-in-out infinite;
+
+}
+
+
+/* HEARTBEAT ANIMATION */
+
+@keyframes heartbeat {
+
+  0%, 100% {
+
+    transform: scale(1);
+
+  }
+
+  15% {
+
+    transform: scale(1.2);
+
+  }
+
+  30% {
+
+    transform: scale(1);
+
+  }
+
+  45% {
+
+    transform: scale(1.13);
+
+  }
+
+}
+
+
+.hero-subtitle {
+
+  max-width: 540px;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+  margin-top: 30px;
+
+}
+
+
+.btn {
+
+  display: inline-flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  padding: 13px 22px;
+
+  font-size: .9rem;
+
+  font-weight: 700;
+
+  transition:
+
+    transform .28s ease,
+
+    box-shadow .28s ease,
+
+    background .35s ease;
+
+}
+
+
+.btn:hover {
+
+  transform: translateY(-4px) scale(1.025);
+
+}
+
+
+.btn-primary {
+
+  color: white;
+
+  background:
+
+    linear-gradient(
+      115deg,
+      var(--primary-deep),
+      var(--primary),
+      #fb8dc0
+    );
+
+  box-shadow:
+
+    0 10px 28px rgba(220, 57, 139, .25);
+
+}
+
+
+.btn-primary:hover {
+
+  box-shadow:
+
+    0 14px 38px rgba(220, 57, 139, .38);
+
+}
+
+
+.btn-quiet {
+
+  color: var(--text);
+
+  border: 1px solid var(--line);
+
+  background: var(--surface);
+
+}
+
+
+.btn-quiet:hover {
+
+  border-color: var(--primary);
+
+  box-shadow: var(--glow);
+
+}
+
+
+.hero-note {
+
+  margin-top: 25px;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+}
+
+
+.sparkle {
+
+  color: var(--primary);
+
+  margin-right: 6px;
+
+}
+
+
+/* ==========================================
+   8. HERO FLOWER IMAGE
+========================================== */
+
+.hero-art {
+
+  position: relative;
+
+  padding: 18px;
+
+}
+
+
+.flower-frame {
+
+  position: relative;
+
+  min-height: 420px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 46% 46% 28px 28px;
+
+  overflow: hidden;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #ffc1dc,
+      #9d3b85
+    );
+
+  box-shadow: var(--shadow), var(--glow);
+
+  transform: rotate(2deg);
+
+}
+
+
+.flower-frame img {
+
+  width: 100%;
+
+  height: 470px;
+
+  object-fit: cover;
+
+  transition: transform .8s ease;
+
+}
+
+
+.flower-frame:hover img {
+
+  transform: scale(1.07);
+
+}
+
+
+.flower-frame::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 35% 0 0;
+
+  background:
+
+    linear-gradient(
+      transparent,
+      rgba(30, 8, 27, .55)
+    );
+
+}
+
+
+.flower-fallback {
+
+  display: none;
+
+  height: 420px;
+
+  place-items: center;
+
+  font-size: 5rem;
+
+  background:
+
+    linear-gradient(
+      140deg,
+      #ffd6e8,
+      #b74d8c
+    );
+
+}
+
+
+.image-fallback .flower-fallback {
+
+  display: grid;
+
+}
+
+
+.art-caption {
+
+  position: absolute;
+
+  z-index: 1;
+
+  bottom: 24px;
+
+  left: 22px;
+
+  color: white;
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: 2rem;
+
+}
+
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+
+  position: absolute;
+
+  color: var(--primary);
+
+  filter: drop-shadow(0 0 12px var(--accent));
+
+  animation: bob 3.2s ease-in-out infinite;
+
+}
+
+
+.heart-one {
+
+  top: 8px;
+
+  right: 12px;
+
+  font-size: 3rem;
+
+}
+
+
+.heart-two {
+
+  left: 0;
+
+  top: 52%;
+
+  font-size: 4rem;
+
+  animation-delay: .8s;
+
+}
+
+
+.heart-three {
+
+  right: 4%;
+
+  bottom: 5%;
+
+  font-size: 2rem;
+
+  animation-delay: 1.4s;
+
+}
+
+
+@keyframes bob {
+
+  0%, 100% {
+
+    transform: translateY(0) rotate(-8deg);
+
+  }
+
+  50% {
+
+    transform: translateY(-18px) rotate(9deg);
+
+  }
+
+}
+
+
+.scroll-cue {
+
+  position: absolute;
+
+  bottom: 22px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: grid;
+
+  place-items: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  color: var(--primary);
+
+  animation: bob 2s infinite;
+
+}
+
+
+/* ==========================================
+   9. INTRO STRIP
+========================================== */
+
+.intro-strip {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 22px;
+
+  padding: 22px;
+
+  border-block: 1px solid var(--line);
+
+  text-align: center;
+
+  color: var(--muted);
+
+}
+
+
+.intro-strip strong {
+
+  color: var(--text);
+
+}
+
+
+.strip-flower {
+
+  color: var(--primary);
+
+  font-size: 1.5rem;
+
+}
+
+
+/* ==========================================
+   10. SECTION HEADINGS
+========================================== */
+
+.section-block {
+
+  padding-top: 110px;
+
+  padding-bottom: 55px;
+
+}
+
+
+.section-heading {
+
+  text-align: center;
+
+  margin-bottom: 42px;
+
+}
+
+
+.section-heading h2,
+.letter-card h2,
+.final-card h2 {
+
+  margin-top: 7px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+
+  line-height: 1.2;
+
+}
+
+
+.script-word {
+
+  font-size: 1.22em;
+
+}
+
+
+.section-description {
+
+  color: var(--muted);
+
+  margin-top: 10px;
+
+}
+
+
+/* ==========================================
+   11. MEMORIES GALLERY
+========================================== */
+
+.memory-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+
+}
+
+
+.memory-card {
+
+  min-width: 0;
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius);
+
+  overflow: hidden;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+
+  transition:
+
+    transform .35s ease,
+
+    box-shadow .35s ease;
+
+}
+
+
+.memory-card:hover {
+
+  transform: translateY(-9px);
+
+  box-shadow: var(--shadow), var(--glow);
+
+}
+
+
+.memory-photo {
+
+  position: relative;
+
+  height: 300px;
+
+  overflow: hidden;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255, 173, 211, .4),
+      rgba(205, 91, 157, .22)
+    );
+
+}
+
+
+.memory-photo img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform .65s ease;
+
+}
+
+
+.memory-card:hover .memory-photo img {
+
+  transform: scale(1.08);
+
+}
+
+
+.photo-placeholder {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--primary-deep);
+
+  background:
+
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 12px,
+      rgba(255,255,255,.13) 12px,
+      rgba(255,255,255,.13) 24px
+    );
+
+}
+
+
+.photo-placeholder span {
+
+  font-size: 3.5rem;
+
+}
+
+
+.photo-placeholder small {
+
+  color: var(--muted);
+
+  font-size: .72rem;
+
+}
+
+
+.photo-number {
+
+  position: absolute;
+
+  top: 14px;
+
+  left: 14px;
+
+  padding: 5px 11px;
+
+  border-radius: 99px;
+
+  color: white;
+
+  background: rgba(42, 15, 36, .55);
+
+  backdrop-filter: blur(8px);
+
+  font-size: .72rem;
+
+}
+
+
+.memory-info {
+
+  padding: 20px 22px 23px;
+
+}
+
+
+.memory-info h3 {
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 1.2rem;
+
+}
+
+
+.memory-info p {
+
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: .88rem;
+
+}
+
+
+.edit-tip {
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+}
+
+
+code {
+
+  color: var(--primary-deep);
+
+  background: var(--surface);
+
+  padding: 2px 5px;
+
+  border-radius: 5px;
+
+}
+
+
+/* ==========================================
+   12. LOVE LETTER SECTION
+========================================== */
+
+.letter-section {
+
+  display: grid;
+
+  grid-template-columns: .2fr 1fr .2fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+}
+
+
+.letter-decoration {
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  text-align: center;
+
+  animation: bob 4s ease-in-out infinite;
+
+}
+
+
+.letter-decoration-right {
+
+  animation-delay: 1.2s;
+
+}
+
+
+.letter-card {
+
+  max-width: 760px;
+
+  justify-self: center;
+
+  padding: clamp(28px, 5vw, 55px);
+
+  border: 1px solid var(--line);
+
+  border-radius: 32px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+
+  position: relative;
+
+}
+
+
+.letter-card::before {
+
+  content: "“";
+
+  position: absolute;
+
+  top: 2px;
+
+  right: 28px;
+
+  color: var(--accent);
+
+  opacity: .35;
+
+  font-family: Georgia, serif;
+
+  font-size: 8rem;
+
+  line-height: 1;
+
+}
+
+
+.letter-body {
+
+  margin: 25px 0;
+
+  color: var(--muted);
+
+}
+
+
+.letter-body p {
+
+  margin: 0 0 15px;
+
+}
+
+
+.letter-signoff {
+
+  color: var(--text);
+
+  padding-top: 10px;
+
+}
+
+
+.letter-signoff .script-word {
+
+  font-size: 2rem;
+
+}
+
+
+/* ==========================================
+   13. 100 REASONS SECTION
+========================================== */
+
+.reason-box {
+
+  max-width: 720px;
+
+  margin: auto;
+
+  padding: clamp(30px, 6vw, 58px);
+
+  border: 1px solid var(--line);
+
+  border-radius: 32px;
+
+  text-align: center;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow), var(--glow);
+
+}
+
+
+.reason-count {
+
+  color: var(--primary);
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  letter-spacing: .2em;
+
+}
+
+
+.reason-heart {
+
+  margin: 12px 0;
+
+  color: var(--primary);
+
+  font-size: 3.5rem;
+
+  animation: heartbeat 1.8s infinite;
+
+}
+
+
+.reason-text {
+
+  min-height: 74px;
+
+  margin: 0 auto 25px;
+
+  max-width: 520px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(1.35rem, 3vw, 2rem);
+
+  line-height: 1.4;
+
+}
+
+
+/* ==========================================
+   14. FLOWER BANNER
+========================================== */
+
+.flower-banner {
+
+  position: relative;
+
+  overflow: hidden;
+
+  margin-top: 65px;
+
+  padding: 48px 24px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  background:
+
+    linear-gradient(
+      120deg,
+      rgba(255, 175, 213, .23),
+      rgba(197, 117, 245, .12)
+    );
+
+}
+
+
+.banner-flowers {
+
+  margin-bottom: 12px;
+
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+
+  letter-spacing: .2em;
+
+}
+
+
+.flower-banner h2 {
+
+  margin: 8px 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+
+}
+
+
+.flower-banner > p:last-child {
+
+  color: var(--muted);
+
+}
+
+
+/* ==========================================
+   15. FINAL MESSAGE
+========================================== */
+
+.final-section {
+
+  padding-bottom: 100px;
+
+}
+
+
+.final-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  max-width: 850px;
+
+  margin: auto;
+
+  padding: clamp(35px, 7vw, 75px);
+
+  border: 1px solid var(--line);
+
+  border-radius: 36px;
+
+  text-align: center;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow), var(--glow);
+
+}
+
+
+.final-card::before,
+.final-card::after {
+
+  content: "✿";
+
+  position: absolute;
+
+  color: var(--accent);
+
+  opacity: .2;
+
+  font-size: 8rem;
+
+}
+
+
+.final-card::before {
+
+  top: -25px;
+
+  left: -12px;
+
+  transform: rotate(-25deg);
+
+}
+
+
+.final-card::after {
+
+  bottom: -42px;
+
+  right: -10px;
+
+  transform: rotate(25deg);
+
+}
+
+
+.final-sparkles {
+
+  color: var(--primary);
+
+  font-size: 1.8rem;
+
+  margin-bottom: 15px;
+
+}
+
+
+.final-message {
+
+  max-width: 620px;
+
+  margin: 22px auto;
+
+  color: var(--muted);
+
+  font-size: 1.03rem;
+
+}
+
+
+.final-love {
+
+  margin: 20px 0 26px;
+
+  font-family: "Great Vibes", cursive;
+
+  color: var(--primary);
+
+  font-size: 2.5rem;
+
+}
+
+
+.final-love span {
+
+  display: inline-block;
+
+  animation: heartbeat 1.5s infinite;
+
+}
+
+
+.signature {
+
+  margin-top: 28px;
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+}
+
+
+.signature strong {
+
+  color: var(--primary);
+
+  letter-spacing: .08em;
+
+}
+
+
+/* ==========================================
+   16. FOOTER
+========================================== */
+
+.site-footer {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 22px clamp(22px, 6vw, 90px);
+
+  border-top: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+}
+
+
+.site-footer b {
+
+  color: var(--primary);
+
+}
+
+
+/* ==========================================
+   17. SCROLL REVEAL ANIMATION
+========================================== */
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(26px);
+
+  transition:
+
+    opacity .8s ease,
+
+    transform .8s cubic-bezier(.2,.7,.2,1);
+
+}
+
+
+.reveal.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+/* ==========================================
+   18. LOVE LETTER MODAL
+========================================== */
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 50;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: .35s ease;
+
+}
+
+
+.modal.open {
+
+  opacity: 1;
+
+  visibility: visible;
+
+}
+
+
+.modal-backdrop {
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(15, 7, 18, .65);
+
+  backdrop-filter: blur(8px);
+
+}
+
+
+.modal-panel {
+
+  position: relative;
+
+  width: min(520px, 100%);
+
+  padding: 42px 32px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 28px;
+
+  text-align: center;
+
+  color: var(--text);
+
+  background: var(--surface-solid);
+
+  box-shadow: 0 30px 90px rgba(0,0,0,.3);
+
+  transform: translateY(20px) scale(.97);
+
+  transition: transform .35s ease;
+
+}
+
+
+.modal.open .modal-panel {
+
+  transform: translateY(0) scale(1);
+
+}
+
+
+.modal-close {
+
+  position: absolute;
+
+  top: 12px;
+
+  right: 16px;
+
+  border: 0;
+
+  background: none;
+
+  color: var(--muted);
+
+  font-size: 2rem;
+
+}
+
+
+.modal-flower {
+
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 2.5rem;
+
+}
+
+
+.modal-panel h2 {
+
+  margin: 8px 0 15px;
+
+  font-family: "Playfair Display", serif;
+
+}
+
+
+.modal-panel > p:not(.eyebrow) {
+
+  margin-bottom: 24px;
+
+  color: var(--muted);
+
+}
+
+
+/* ==========================================
+   19. TOAST MESSAGE
+========================================== */
+
+.toast {
+
+  position: fixed;
+
+  z-index: 60;
+
+  left: 50%;
+
+  bottom: 25px;
+
+  transform: translate(-50%, 20px);
+
+  padding: 12px 20px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 99px;
+
+  color: white;
+
+  background: var(--primary-deep);
+
+  box-shadow: var(--shadow);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: .35s ease;
+
+  white-space: nowrap;
+
+}
+
+
+.toast.show {
+
+  opacity: 1;
+
+  transform: translate(-50%, 0);
+
+}
+
+
+/* ==========================================
+   20. TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+
+    gap: 14px;
+
+  }
+
+  .nav-links a {
+
+    font-size: .78rem;
+
+  }
+
+  .hero {
+
+    gap: 25px;
+
+    min-height: 600px;
+
+  }
+
+  .flower-frame,
+  .flower-frame img {
+
+    min-height: 360px;
+
+    height: 390px;
+
+  }
+
+  .memory-photo {
+
+    height: 245px;
+
+  }
+
+}
+
+
+/* ==========================================
+   21. MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 700px) {
+
+  .site-header {
+
+    min-height: 68px;
+
+    padding-inline: 17px;
+
+  }
+
+  .brand {
+
+    font-size: .85rem;
+
+  }
+
+  .brand i {
+
+    font-size: .62rem;
+
+  }
+
+  .menu-toggle {
+
+    display: inline-block;
+
+  }
+
+  .toggle-label {
+
+    display: none;
+
+  }
+
+  .nav-links {
+
+    position: absolute;
+
+    top: calc(100% + 1px);
+
+    left: 0;
+
+    right: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 8px 20px 16px;
+
+    background: var(--header);
+
+    border-bottom: 1px solid var(--line);
+
+    backdrop-filter: blur(18px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition: .25s ease;
+
+  }
+
+  .nav-links.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+  }
+
+  .nav-links a {
+
+    padding: 11px 4px;
+
+    font-size: .9rem;
+
+  }
+
+  .nav-links a::after {
+
+    display: none;
+
+  }
+
+  .section-shell {
+
+    width: min(100% - 32px, 560px);
+
+  }
+
+  .hero {
+
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding-top: 65px;
+
+    padding-bottom: 75px;
+
+    gap: 28px;
+
+  }
+
+  .hero-copy {
+
+    text-align: center;
+
+  }
+
+  .hero-subtitle {
+
+    margin-inline: auto;
+
+  }
+
+  .hero-buttons {
+
+    justify-content: center;
+
+  }
+
+  .hero-note {
+
+    margin-top: 18px;
+
+  }
+
+  .hero-art {
+
+    width: min(100%, 430px);
+
+    margin-inline: auto;
+
+  }
+
+  .flower-frame {
+
+    min-height: 330px;
+
+    border-radius: 45% 45% 24px 24px;
+
+  }
+
+  .flower-frame img {
+
+    height: 350px;
+
+  }
+
+  .scroll-cue {
+
+    bottom: 12px;
+
+  }
+
+  .intro-strip {
+
+    gap: 10px;
+
+    padding: 18px 8px;
+
+    font-size: .84rem;
+
+  }
+
+  .section-block {
+
+    padding-top: 78px;
+
+    padding-bottom: 35px;
+
+  }
+
+  .memory-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+  }
+
+  .memory-photo {
+
+    height: min(78vw, 360px);
+
+  }
+
+  .letter-section {
+
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+
+  }
+
+  .letter-decoration {
+
+    font-size: 2.4rem;
+
+  }
+
+  .letter-decoration-right {
+
+    display: none;
+
+  }
+
+  .letter-card {
+
+    padding: 30px 23px;
+
+  }
+
+  .flower-banner {
+
+    margin-top: 55px;
+
+    padding: 36px 18px;
+
+  }
+
+  .final-section {
+
+    padding-bottom: 70px;
+
+  }
+
+  .site-footer {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+  }
+
+}
+
+
+/* ==========================================
+   22. SMALL MOBILE SCREENS
+========================================== */
+
+@media (max-width: 390px) {
+
+  .hero-title {
+
+    font-size: 2.8rem;
+
+  }
+
+  .hero-buttons .btn {
+
+    width: 100%;
+
+  }
+
+  .theme-toggle {
+
+    padding: 8px 11px;
+
+  }
+
+  .reason-box {
+
+    padding: 28px 18px;
+
+  }
+
+}
+
+
+/* ==========================================
+   23. ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    scroll-behavior: auto !important;
+
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: .01ms !important;
+
+  }
+
+  .reveal {
+
+    opacity: 1;
+
+    transform: none;
+
+  }
+
+  }
